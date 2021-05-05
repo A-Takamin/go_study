@@ -21,7 +21,7 @@
         var socket = null;
         var msgBox = $("#chatbox textarea");
         var messages = $("#messages");
-        $("$chatbox").submit(function(){
+        $("#chatbox").submit(function(){
             if (!msgBox.val()) return false
             if (!socket) {
                 alert("エラー: websocket接続が行われていません。");
