@@ -9,6 +9,8 @@ import (
 	"os"
 	"path/filepath"
 	"sync"
+
+	"github.com/stretchr/gomniauth"
 )
 
 // templは1つのテンプレート
@@ -33,6 +35,11 @@ func main() {
 	// flagはコマンドラインの引数に関するパッケージ
 	var addr = flag.String("addr", ":8080", "アプリケーションのアドレス")
 	flag.Parse() //フラグを解釈する。デフォルトは8080。
+	gomniauth.SetSecurityKey("セキュリティキー")
+	gomniauth.WithProviders(
+	// 中止
+	)
+
 	r := newRoom()
 	r.tracer = trace.New(os.Stdout)
 
